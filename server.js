@@ -1,10 +1,13 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.port || 5500; // You can change this port number if needed
 
+app.use(cors()); // Use the cors middleware
 app.use(express.json());
+
 
 app.get('/search', async (req, res) => {
   const searchQuery = req.query.q;
